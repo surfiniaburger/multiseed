@@ -1,16 +1,19 @@
-Multi-Signature Wallet Interface Documentation
-Overview
+# Multi-Signature Wallet Interface Documentation
+## Overview
 The IMultiSig interface defines a multi-signature wallet in Solidity, allowing multiple owners to manage funds with required confirmations for transactions.
 
-License
-License: MIT-OR-APACHE-2.0
+## License
+*License*: MIT-OR-APACHE-2.0
 Version: ^0.8.23
 Functions
 State Functions
-numConfirmationsRequired(): Returns the number of confirmations needed to execute a transaction.
-isOwner(address check_address): Checks if an address is an owner of the wallet.
-getTransactionCount(): Returns the total number of submitted transactions.
-Transaction Functions
+*numConfirmationsRequired()*: Returns the number of confirmations needed to execute a transaction.
+
+*isOwner(address check_address)*: Checks if an address is an owner of the wallet.
+
+*getTransactionCount()*: Returns the total number of submitted transactions.
+
+## Transaction Functions
 deposit(): Allows users to deposit Ether.
 submitTransaction(address to, uint256 value, bytes calldata data): Submits a new transaction for confirmation.
 executeTransaction(uint256 tx_index): Executes a transaction if it has enough confirmations.
