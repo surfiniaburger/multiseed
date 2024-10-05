@@ -59,8 +59,7 @@ The IMultiSig interface provides a secure way to manage funds with multiple owne
 
 # Users can interact with the IMultiSig interface to manage a multi-signature wallet through the following steps:
 
-git config --global user.email "tummagold@gmail.com"
-  git config --global user.name "EmmyTunz"
+
 
 1. Initialization
 Method: initialize
