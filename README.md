@@ -14,30 +14,52 @@ State Functions
 *getTransactionCount()*: Returns the total number of submitted transactions.
 
 ## Transaction Functions
-deposit(): Allows users to deposit Ether.
-submitTransaction(address to, uint256 value, bytes calldata data): Submits a new transaction for confirmation.
-executeTransaction(uint256 tx_index): Executes a transaction if it has enough confirmations.
-confirmTransaction(uint256 tx_index): Confirms a transaction as an owner.
-revokeConfirmation(uint256 tx_index): Revokes confirmation of a transaction.
-Initialization
-initialize(address[] memory owners, uint256 num_confirmations_required): Sets up the wallet with owners and confirmation requirements.
-Custom Errors
-AlreadyInitialized(): Contract has been initialized already.
-ZeroOwners(): No owners provided.
-InvalidConfirmationNumber(): Confirmation number is invalid.
-InvalidOwner(): Specified owner address is not valid.
-OwnerNotUnique(): Duplicate owners provided.
-NotOwner(): Caller is not an owner.
-TxDoesNotExist(): Transaction does not exist.
-TxAlreadyExecuted(): Transaction has already been executed.
-TxAlreadyConfirmed(): Transaction is already confirmed.
-TxNotConfirmed(): Transaction has not been confirmed.
-ConfirmationNumberNotEnough(): Insufficient confirmations to execute.
-ExecuteFailed(): Transaction execution failed.
-Conclusion
+*deposit()*: Allows users to deposit Ether.
+
+*submitTransaction(address to, uint256 value, bytes calldata data)*: Submits a new transaction for confirmation.
+
+*executeTransaction(uint256 tx_index)*: Executes a transaction if it has enough confirmations.
+
+*confirmTransaction(uint256 tx_index)*: Confirms a transaction as an owner.
+
+*revokeConfirmation(uint256 tx_index)*: Revokes confirmation of a transaction.
+
+## Initialization
+
+*initialize(address[] memory owners, uint256 num_confirmations_required)*: Sets up the wallet with owners and confirmation requirements.
+
+## Custom Errors
+
+*AlreadyInitialized()*: Contract has been initialized already.
+
+*ZeroOwners()*: No owners provided.
+
+*InvalidConfirmationNumber()*: Confirmation number is invalid.
+
+*InvalidOwner()*: Specified owner address is not valid.
+
+*OwnerNotUnique()*: Duplicate owners provided.
+
+*NotOwner()*: Caller is not an owner.
+
+*TxDoesNotExist()*: Transaction does not exist.
+
+*TxAlreadyExecuted()*: Transaction has already been executed.
+
+*TxAlreadyConfirmed()*: Transaction is already confirmed.
+
+*TxNotConfirmed()*: Transaction has not been confirmed.
+
+*ConfirmationNumberNotEnough()*: Insufficient confirmations to execute.
+
+*ExecuteFailed()*: Transaction execution failed.
+
+## Conclusion
 The IMultiSig interface provides a secure way to manage funds with multiple owners, ensuring collaborative decision-making. For more details, visit the Stylus SDK.
 
-Users can interact with the IMultiSig interface to manage a multi-signature wallet through the following steps:
+# Users can interact with the IMultiSig interface to manage a multi-signature wallet through the following steps:
+
+
 
 1. Initialization
 Method: initialize
@@ -116,5 +138,5 @@ Example:
 solidity
 Copy code
 uint256 count = multiSigWallet.getTransactionCount();
-Summary
+## Summary
 Users can interact with the IMultiSig interface through a series of function calls to manage transactions securely. Each owner can submit, confirm, and execute transactions, ensuring that funds are handled collaboratively and safely.
