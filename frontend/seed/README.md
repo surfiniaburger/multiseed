@@ -1,5 +1,5 @@
 # Project Overview:
-Multiseed is a decentralized multi-signature (MultiSig) wallet built on Ethereum using Solidity smart contracts. It allows multiple users to collectively manage and secure digital assets, requiring multiple approvals (signatures) before any transaction can be executed. This increases security by preventing a single point of failure in asset management.
+Multiseed is a decentralized multi-signature (MultiSig) wallet built on Ethereum using Arbitrum stylus rust contracts. It allows multiple users to collectively manage and secure digital assets, requiring multiple approvals (signatures) before any transaction can be executed. This increases security by preventing a single point of failure in asset management.
 
 ## Problem Statement:
 Traditional financial systems often rely on centralized authorities or single-user control over funds, which poses a significant risk of mismanagement, hacking, or fraud. For organizations, decentralized autonomous organizations (DAOs), charities, or even friends managing shared assets, securing funds with multiple layers of approval can prevent unauthorized transactions.
