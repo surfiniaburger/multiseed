@@ -9,7 +9,7 @@ const multiSigAbi = [
 ]
 
 function MultiSigReadApp() {
-  const { address, isConnecting, isDisconnected } = useAccount()// Replace with actual user address
+  const { address} = useAccount()// Replace with actual user address
 
   // Read the number of confirmations required for a transaction
   const { data: confirmationsRequired, isError: confirmationsError, isLoading: loadingConfirmations } = useReadContract({
