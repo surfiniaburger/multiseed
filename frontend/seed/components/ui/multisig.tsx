@@ -9,42 +9,42 @@ const multiSigAbi = [
 ]
 
 function MultiSigReadApp() {
-  const { address} = useAccount()// Replace with actual user address
+  const { address, isConnecting, isDisconnected } = useAccount()
 
   // Read the number of confirmations required for a transaction
-  const { data: confirmationsRequired, isError: confirmationsError, isLoading: loadingConfirmations } = useReadContract({
+  const { data: confirmationsRequired, isLoading: loadingConfirmations } = useReadContract({
     address: multiSigAddress,
     abi: multiSigAbi,
     functionName: 'numConfirmationsRequired',
   })
 
   // Read the total number of transactions submitted
-  const { data: transactionCount, isError: transactionError, isLoading: loadingTransactionCount } = useReadContract({
+  const { data: transactionCount, isLoading: loadingTransactionCount } = useReadContract({
     address: multiSigAddress,
     abi: multiSigAbi,
     functionName: 'getTransactionCount',
   })
 
-  // Check if a specific user is an owner of the multi-sig wallet
-  const { data: isOwner, isError: ownerError, isLoading: loadingIsOwner } = useReadContract({
+  // Check if the connected user is an owner of the multi-sig wallet
+  const { data: isOwner, isLoading: loadingIsOwner } = useReadContract({
     address: multiSigAddress,
     abi: multiSigAbi,
     functionName: 'isOwner',
-    args: [address],
+    args: [address],  // Dynamically use the connected wallet address
   })
 
-  if (loadingConfirmations || loadingTransactionCount || loadingIsOwner) {
-    return <p>Loading...</p>
-  }
+  if (isConnecting) return <div>Connecting…</div>
+  if (isDisconnected) return <div>Disconnected</div>
 
-  if (confirmationsError || transactionError || ownerError) {
-    return <p>Error loading contract data.</p>
+  if (loadingConfirmations || loadingTransactionCount || loadingIsOwner) {
+    return <p>Loading contract data...</p>
   }
 
   return (
     <div>
       <h1>Multi-Sig Contract Overview</h1>
       
+      <p><strong>Wallet Address:</strong> {address}</p>
       <p><strong>Confirmations Required:</strong> {confirmationsRequired?.toString()}</p>
       <p><strong>Total Transactions:</strong> {transactionCount?.toString()}</p>
       <p><strong>Is User Owner:</strong> {isOwner ? 'Yes' : 'No'}</p>
