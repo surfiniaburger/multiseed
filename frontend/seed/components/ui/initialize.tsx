@@ -2,7 +2,7 @@
 import { useAccount } from 'wagmi'
 import { writeContract } from '@wagmi/core'
 import { config } from "@/config/index"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const multiSigAddress = '0x1c9a2f33475accf2f56c2f7132554ea0b48fa6cc'
 const multiSigAbi = [
