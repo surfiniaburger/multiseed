@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import MultiSigReadApp from "./multisig";
+import InitializeMultiSig from "./initialize";
 
 export function NavbarDemo() {
   return (
@@ -27,7 +28,7 @@ export function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/web-dev">Web Development</HoveredLink>
             <HoveredLink href="/interface-design">Interface Design</HoveredLink>
             <HoveredLink href="/seo">Search Engine Optimization</HoveredLink>
-            <HoveredLink href="/branding">Branding</HoveredLink>
+            <InitializeMultiSig/>
           </div>
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Connect">
