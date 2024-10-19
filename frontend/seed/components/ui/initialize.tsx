@@ -185,7 +185,7 @@ const initializeMultiSig = async () => {
 
       {/* Admin Panel to Initialize Multi-Sig */}
       <button onClick={initializeMultiSig}>
-        Initialize Multi-Sig
+        Initialize 
       </button>
     </div>
   )
