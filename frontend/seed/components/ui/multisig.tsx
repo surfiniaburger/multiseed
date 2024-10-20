@@ -3,17 +3,10 @@ import { useAccount } from 'wagmi'
 import { useState, useEffect } from 'react'
 import { writeContract,  readContract } from '@wagmi/core'
 import { config } from "@/config/index"
+import { multiSigAbi } from './abi'
 
 // Multi-sig contract address and ABI
 const multiSigAddress = '0x1c9a2f33475accf2f56c2f7132554ea0b48fa6cc'
-const multiSigAbi = [
-  'function numConfirmationsRequired() external view returns (uint256)',
-  'function getTransactionCount() external view returns (uint256)',
-  'function isOwner(address check_address) external view returns (bool)',
-  'function initialize(address[] memory owners, uint256 num_confirmations_required) external',
-  'function submitTransaction(address to, uint256 value, bytes calldata data) external',
-  'event TransactionSubmitted(uint256 indexed txIndex)',
-]
 
 function MultiSigApp() {
   const { address, isConnecting, isDisconnected } = useAccount()
